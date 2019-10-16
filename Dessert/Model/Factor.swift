@@ -12,10 +12,12 @@ struct Factor: Codable {
     
     // MARK: - Character
     
-    let factorId: String?
-    let type: String?
+    var factorId: String?
+    var type: String?
     
     // MARK: - Init
+    
+    init() {}
     
     init(dictionary: [String:AnyObject]) {
         self.factorId = dictionary[Requester.JSONResponseKeys.mockyId] as? String

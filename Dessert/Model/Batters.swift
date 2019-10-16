@@ -12,7 +12,7 @@ struct Batters: Codable {
     
     // MARK: - Character
     
-    let batter: [Factor]?
+    var batter: [Factor]?
     let topping: [Factor]?
 
     

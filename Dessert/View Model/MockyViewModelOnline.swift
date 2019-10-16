@@ -14,11 +14,19 @@ class MockyViewModelOnline: MockyViewModel {
         Requester.getMocky()  { (success, mocky, error) in
             DispatchQueue.main.async {
                 if success {
-                    MockyViewModelOffline().writeMocky(mocky!)
+                    MockyViewModelOffline().saveMocky(mocky!)
                     self.mocky = mocky
                     self.delegate?.showMocky(mocky!)
                 }
             }
         }
     }
+    
+    override func addFactor(_ factor: Factor) {
+        super.addFactor(factor)
+        MockyViewModelOffline().saveMocky(self.mocky!)
+        // TODO: Save mocky for online
+        self.delegate!.refresh()
+    }
+
 }

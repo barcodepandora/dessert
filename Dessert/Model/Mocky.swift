@@ -16,7 +16,7 @@ struct Mocky: Codable {
     let type: String?
     let name: String?
     let ppu: String?
-    let batters: Batters?
+    var batters: Batters?
     
     // MARK: - Init
     

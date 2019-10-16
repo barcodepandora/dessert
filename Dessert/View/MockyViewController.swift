@@ -13,13 +13,15 @@ class MockyViewController: UIViewController, ViewModelDelegate {
     // MARK: - Outlet
     
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var mas: UIButton!
+    @IBOutlet weak var nuevo: UITextField!
     
     // MARK: - Character
     
-    var mocky: Mocky?
     var viewModel: MockyViewModel?
     let unchecked = "Escoger"
     let checked = "Listo"
+    var counter = 1005
     
     // MARK: - View
     
@@ -34,6 +36,7 @@ class MockyViewController: UIViewController, ViewModelDelegate {
     func prepareTable() {
         self.table.dataSource = self
         self.table.delegate = self
+//        self.nuevo.text = "Tropical"
     }
     
     // MARK: - View Model Delegate
@@ -49,6 +52,12 @@ class MockyViewController: UIViewController, ViewModelDelegate {
         }
         alertController.addAction(OKAction)
         self.present(alertController, animated: true) {}
+    }
+    
+    func refresh() {
+        self.table.reloadData()
+        self.counter = self.counter + 1
+        self.nuevo.text = ""
     }
     
     /*
@@ -72,5 +81,12 @@ class MockyViewController: UIViewController, ViewModelDelegate {
             self.viewModel?.uncheckFactor()
         }
         self.viewModel!.checkAllFactor()
+    }
+    
+    @IBAction func agregar(_ sender: Any) {
+        var nuevo = Factor()
+        nuevo.factorId = String(self.counter)
+        nuevo.type = self.nuevo.text
+        self.viewModel?.addFactor(nuevo)
     }
 }

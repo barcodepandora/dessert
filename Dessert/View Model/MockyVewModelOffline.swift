@@ -12,10 +12,15 @@ class MockyViewModelOffline: MockyViewModel {
     
     override func getMocky() {
         var mocky = DiskManager.shared.getMocky()
-        // TODO: Retrieve for offline
+        // TODO: Retrieve for view for offline
     }
     
-    override func writeMocky(_ mocky: Mocky) {
+    override func saveMocky(_ mocky: Mocky) {
         DiskManager.shared.writeMocky(mocky)
+    }
+    
+    override func addFactor(_ factor: Factor) {
+        super.addFactor(factor)
+        MockyViewModelOffline().saveMocky(self.mocky!)
     }
 }

@@ -11,16 +11,19 @@ import Foundation
 protocol ViewModelBehavoir {
 
     func getMocky()
-    func writeMocky(_ mocky: Mocky)
+    func saveMocky(_ mocky: Mocky)
     func checkFactor()
     func uncheckFactor()
     func checkAllFactor()
+    func addFactor(_ factor: Factor)
+    
 }
 
 protocol ViewModelDelegate: class {
     
     func showMocky(_ mocky: Mocky)
     func tellAllFactor()
+    func refresh()
 }
 
 class MockyViewModel: ViewModelBehavoir {
@@ -35,7 +38,7 @@ class MockyViewModel: ViewModelBehavoir {
     
     func getMocky() {}
     
-    func writeMocky(_ mocky: Mocky) {}
+    func saveMocky(_ mocky: Mocky) {}
     
     func checkAllFactor() {
         if self.factorForBakin == self.mocky?.batters?.batter?.count {
@@ -49,5 +52,9 @@ class MockyViewModel: ViewModelBehavoir {
     
     func uncheckFactor() {
         self.factorForBakin = self.factorForBakin - 1
+    }
+    
+    func addFactor(_ factor: Factor) {
+        self.mocky?.batters?.batter?.append(factor)
     }
 }
