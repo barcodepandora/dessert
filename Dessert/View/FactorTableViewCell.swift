@@ -11,6 +11,7 @@ import UIKit
 class FactorTableViewCell: UITableViewCell {
 
     @IBOutlet weak var type: UILabel!
+    @IBOutlet weak var check: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

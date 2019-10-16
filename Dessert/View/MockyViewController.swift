@@ -16,6 +16,9 @@ class MockyViewController: UIViewController, ViewModelDelegate {
     var mocky: Mocky?
     var viewModel: MockyViewModel?
 
+    let unchecked = "Escoger"
+    let checked = "Listo"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +42,14 @@ class MockyViewController: UIViewController, ViewModelDelegate {
         }
     }
 
+    func tellAllFactor() {
+        let alertController = UIAlertController(title: "HOLA", message: "La preparación finalizó.", preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { action in
+        }
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true) {}
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -49,4 +60,14 @@ class MockyViewController: UIViewController, ViewModelDelegate {
     }
     */
 
+    @IBAction func check(_ sender: Any) {
+        if (sender as! UIButton).title(for: .normal) == self.unchecked {
+            (sender as! UIButton).setTitle(self.checked,for: .normal)
+            self.viewModel?.factorForBakin = self.viewModel!.factorForBakin + 1
+        } else {
+            (sender as! UIButton).setTitle(self.unchecked,for: .normal)
+            self.viewModel?.factorForBakin = self.viewModel!.factorForBakin - 1
+        }
+        self.viewModel!.checkAllFactor()
+    }
 }

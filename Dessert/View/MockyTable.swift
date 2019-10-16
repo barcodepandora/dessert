@@ -26,6 +26,7 @@ extension MockyViewController: UITableViewDataSource {
         let cellReuseId = "factor"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as! FactorTableViewCell
         (cell as FactorTableViewCell).type.text = (self.viewModel!.mocky?.batters?.batter![indexPath.row] as! Factor).type
+        (cell as FactorTableViewCell).check.setTitle(self.unchecked,for: .normal)
         return cell
     }
 }
@@ -50,5 +51,5 @@ extension MockyViewController: UITableViewDelegate {
 //
 //            navigationController!.pushViewController(controller, animated: true)
 //        }
-    }
+    }    
 }

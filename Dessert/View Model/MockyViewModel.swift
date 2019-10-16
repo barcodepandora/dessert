@@ -14,6 +14,7 @@ protocol ViewModelBehavoir {
     
     func writeMocky(_ mocky: Mocky)
 
+    func checkAllFactor()
 }
 
 protocol ViewModelDelegate: class {
@@ -21,11 +22,14 @@ protocol ViewModelDelegate: class {
     func showMocky(_ mocky: Mocky)
     
     func reloadTable(type: Int)
+    
+    func tellAllFactor()
 }
 
 class MockyViewModel: ViewModelBehavoir {
     
     var mocky: Mocky?
+    var factorForBakin = 0
     weak var delegate: ViewModelDelegate?
     
     init() {
@@ -53,4 +57,10 @@ class MockyViewModel: ViewModelBehavoir {
     }
     
     func writeMocky(_ mocky: Mocky) {}
+    
+    func checkAllFactor() {
+        if self.factorForBakin == self.mocky?.batters?.batter?.count {
+            self.delegate?.tellAllFactor()
+        }
+    }
 }
