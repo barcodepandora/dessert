@@ -10,38 +10,39 @@ import UIKit
 
 class MockyViewController: UIViewController, ViewModelDelegate {
 
-//    @IBOutlet weak var tableView: UITableView!
+    // MARK: - Outlet
+    
     @IBOutlet weak var table: UITableView!
+    
+    // MARK: - Character
     
     var mocky: Mocky?
     var viewModel: MockyViewModel?
-
     let unchecked = "Escoger"
     let checked = "Listo"
     
+    // MARK: - View
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewModel = MockyViewModelOnline()
-//        viewModel = MockyViewModelOffline()
         viewModel!.delegate = self
         viewModel!.getMocky()
         
     }
 
-    func showMocky(_ mocky: Mocky) {
+    func prepareTable() {
         self.table.dataSource = self
         self.table.delegate = self
-
+    }
+    
+    // MARK: - View Model Delegate
+    
+    func showMocky(_ mocky: Mocky) {
+        self.prepareTable()
         self.table.reloadData()
     }
     
-    func reloadTable(type: Int) {
-        DispatchQueue.main.sync {
-//            self.tableView.reloadRows(at: [IndexPath(row: type, section: 0)], with: .fade)
-        }
-    }
-
     func tellAllFactor() {
         let alertController = UIAlertController(title: "HOLA", message: "La preparación finalizó.", preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default) { action in
@@ -60,13 +61,15 @@ class MockyViewController: UIViewController, ViewModelDelegate {
     }
     */
 
+    // MARK: - Action
+    
     @IBAction func check(_ sender: Any) {
         if (sender as! UIButton).title(for: .normal) == self.unchecked {
             (sender as! UIButton).setTitle(self.checked,for: .normal)
-            self.viewModel?.factorForBakin = self.viewModel!.factorForBakin + 1
+            self.viewModel?.checkFactor()
         } else {
             (sender as! UIButton).setTitle(self.unchecked,for: .normal)
-            self.viewModel?.factorForBakin = self.viewModel!.factorForBakin - 1
+            self.viewModel?.uncheckFactor()
         }
         self.viewModel!.checkAllFactor()
     }

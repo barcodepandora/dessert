@@ -11,7 +11,6 @@ import Foundation
 protocol DataFoundation {
 
     func getMocky() -> Mocky?
-    
     func writeMocky(_ mocky: Mocky)
     
 }

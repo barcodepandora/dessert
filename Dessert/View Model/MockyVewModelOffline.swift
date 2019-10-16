@@ -12,7 +12,7 @@ class MockyViewModelOffline: MockyViewModel {
     
     override func getMocky() {
         var mocky = DiskManager.shared.getMocky()
-        print("\(mocky)")
+        // TODO: Retrieve for offline
     }
     
     override func writeMocky(_ mocky: Mocky) {

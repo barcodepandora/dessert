@@ -26,13 +26,6 @@ struct Batters: Codable {
             }
         }
         self.batter = factor
-//        factor = [Factor]()
-//        if let factorDictionary: [AnyObject] = dictionary[Requester.JSONResponseKeys.topping] as! [AnyObject] {
-//            for factorT in factorDictionary {
-//                factor.append(Factor(dictionary: factorT as! [String : AnyObject]))
-//            }
-//        }
-//        self.topping = factor
         self.topping = factor
     }
 }
