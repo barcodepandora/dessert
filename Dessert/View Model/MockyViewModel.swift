@@ -16,6 +16,7 @@ protocol ViewModelBehavoir {
     func uncheckFactor()
     func checkAllFactor()
     func addFactor(_ factor: Factor)
+    func removeFactor(_ factorId: Int)
     
 }
 
@@ -55,6 +56,10 @@ class MockyViewModel: ViewModelBehavoir {
     }
     
     func addFactor(_ factor: Factor) {
-        self.mocky?.batters?.batter?.append(factor)
+        self.mocky?.topping?.append(factor)
+    }
+    
+    func removeFactor(_ factorId: Int) {
+        self.mocky?.topping?.remove(at: factorId)
     }
 }

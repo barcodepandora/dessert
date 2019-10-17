@@ -13,7 +13,6 @@ struct Batters: Codable {
     // MARK: - Character
     
     var batter: [Factor]?
-    let topping: [Factor]?
 
     
     // MARK: - Init
@@ -26,6 +25,5 @@ struct Batters: Codable {
             }
         }
         self.batter = factor
-        self.topping = factor
     }
 }

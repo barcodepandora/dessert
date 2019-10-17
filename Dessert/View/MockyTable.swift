@@ -14,14 +14,15 @@ extension MockyViewController: UITableViewDataSource {
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (self.viewModel!.mocky?.batters?.batter!.count)!
+        return (self.viewModel!.mocky?.topping!.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellReuseId = "factor"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as! FactorTableViewCell
-        (cell as FactorTableViewCell).type.text = (self.viewModel!.mocky?.batters?.batter![indexPath.row] as! Factor).type
+        (cell as FactorTableViewCell).type.text = (self.viewModel!.mocky?.topping![indexPath.row] as! Factor).type
         (cell as FactorTableViewCell).check.setTitle(self.unchecked,for: .normal)
+        (cell as FactorTableViewCell).remove.tag = indexPath.row
         return cell
     }
 }

@@ -45,10 +45,19 @@
                                                         <action selector="check:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hdA-DL-AiC"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnD-L3-zff">
+                                                    <rect key="frame" x="283" y="7" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Q"/>
+                                                    <connections>
+                                                        <action selector="remover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="33y-mc-ILd"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="check" destination="zzD-Td-9dX" id="eX2-JX-FHl"/>
+                                            <outlet property="remove" destination="YnD-L3-zff" id="MWe-ed-Iur"/>
                                             <outlet property="type" destination="5AD-2C-boP" id="Rxe-kL-A34"/>
                                         </connections>
                                     </tableViewCell>

@@ -29,4 +29,10 @@ class MockyViewModelOnline: MockyViewModel {
         self.delegate!.refresh()
     }
 
+    override func removeFactor(_ factorId: Int) {
+        super.removeFactor(factorId)
+        MockyViewModelOffline().saveMocky(self.mocky!)
+        // TODO: Remove mocky for online
+        self.delegate!.refresh()
+    }
 }

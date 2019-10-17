@@ -21,7 +21,8 @@ class MockyViewController: UIViewController, ViewModelDelegate {
     var viewModel: MockyViewModel?
     let unchecked = "Escoger"
     let checked = "Listo"
-    var counter = 1005
+    let startAt = 5000
+    var counter = 0
     
     // MARK: - View
     
@@ -36,7 +37,8 @@ class MockyViewController: UIViewController, ViewModelDelegate {
     func prepareTable() {
         self.table.dataSource = self
         self.table.delegate = self
-//        self.nuevo.text = "Tropical"
+        self.counter = self.startAt + 9
+        self.nuevo.text  = "Tropical"
     }
     
     // MARK: - View Model Delegate
@@ -88,5 +90,9 @@ class MockyViewController: UIViewController, ViewModelDelegate {
         nuevo.factorId = String(self.counter)
         nuevo.type = self.nuevo.text
         self.viewModel?.addFactor(nuevo)
+    }
+    
+    @IBAction func remover(_ sender: Any) {
+        self.viewModel?.removeFactor((sender as! UIButton).tag)
     }
 }

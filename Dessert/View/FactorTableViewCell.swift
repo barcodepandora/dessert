@@ -12,6 +12,7 @@ class FactorTableViewCell: UITableViewCell {
 
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var check: UIButton!
+    @IBOutlet weak var remove: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
