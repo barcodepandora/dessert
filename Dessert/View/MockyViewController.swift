@@ -19,8 +19,8 @@ class MockyViewController: UIViewController, ViewModelDelegate {
     // MARK: - Character
     
     var viewModel: MockyViewModel?
-    let unchecked = "Escoger"
-    let checked = "Listo"
+    let unchecked = "CHK"
+    let checked = "OK"
     let startAt = 5000
     var counter = 0
     

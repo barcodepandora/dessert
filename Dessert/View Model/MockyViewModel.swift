@@ -42,7 +42,7 @@ class MockyViewModel: ViewModelBehavoir {
     func saveMocky(_ mocky: Mocky) {}
     
     func checkAllFactor() {
-        if self.factorForBakin == self.mocky?.batters?.batter?.count {
+        if self.factorForBakin == self.mocky?.topping?.count {
             self.delegate?.tellAllFactor()
         }
     }
