@@ -37,7 +37,7 @@ Pattern MVVM
 
 ### Roadmap:
 
-*Networking *Coding MVVM *Solución persistencia local *Workflow topping *UI Design
+* Networking * Coding MVVM * Local data * Workflow topping * UI Design
 
 ### TODO:
 
